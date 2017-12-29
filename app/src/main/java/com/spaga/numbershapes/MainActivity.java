@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void testNumber(View view) {
         EditText usersNumber = findViewById(R.id.usersNumber);
-        String msg;
+        String msg = "";
 
         if (usersNumber.getText().toString().isEmpty())
             msg = "Please enter a number.";
@@ -54,11 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 else
                     msg = myNumber.number + " is neither a square nor triangular number.";
             }
-
-
-            Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-            System.out.println(msg);
         }
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
 
