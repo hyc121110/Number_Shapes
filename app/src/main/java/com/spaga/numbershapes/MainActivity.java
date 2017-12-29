@@ -35,27 +35,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void testNumber(View view) {
         EditText usersNumber = findViewById(R.id.usersNumber);
+        String msg;
 
-        String msg = "";
-        Number myNumber= new Number();
-        myNumber.number = Integer.parseInt(usersNumber.getText().toString());
+        if (usersNumber.getText().toString().isEmpty())
+            msg = "Please enter a number.";
+        else {
+            Number myNumber = new Number();
+            myNumber.number = Integer.parseInt(usersNumber.getText().toString());
 
-        if (myNumber.isSquare()) {
-            if (myNumber.isTriangular())
-                msg = myNumber.number + " is both triangular and square!";
-            else
-                msg = myNumber.number + " is a square number but not a triangular number!";
-        } else {
-            if (myNumber.isTriangular())
-                msg = myNumber.number + " is a triangular number but not a square number!";
-            else
-                msg = myNumber.number + " is neither a square nor triangular number.";
+            if (myNumber.isSquare()) {
+                if (myNumber.isTriangular())
+                    msg = myNumber.number + " is both triangular and square!";
+                else
+                    msg = myNumber.number + " is a square number but not a triangular number!";
+            } else {
+                if (myNumber.isTriangular())
+                    msg = myNumber.number + " is a triangular number but not a square number!";
+                else
+                    msg = myNumber.number + " is neither a square nor triangular number.";
+            }
+
+
+            Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+            System.out.println(msg);
         }
-
-
-
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-        System.out.println(msg);
     }
 
 
